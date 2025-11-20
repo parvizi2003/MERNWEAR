@@ -1,7 +1,7 @@
 import express from "express";
 import { connectDB } from "./db";
 import dotenv from "dotenv";
-import { AuthRoutes } from "./routes";
+import { AuthRoutes, CategoryRoutes } from "./routes";
 
 dotenv.config();
 const app = express();
@@ -10,8 +10,7 @@ app.use(express.json());
 
 // подключаем роуты
 app.use("/auth", AuthRoutes);
-
-app.get("/", (req, res) => res.send("Hello World"));
+app.use("/categories", CategoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 

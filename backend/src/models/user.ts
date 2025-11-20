@@ -1,6 +1,14 @@
-import mongoose from "mongoose";
+import { Document, Schema, model } from "mongoose";
 
-const userSchema = new mongoose.Schema(
+export interface IUser extends Document {
+  username: string;
+  email: string;
+  password: string;
+  sessionTokens: string[];
+  isAdmin: boolean;
+}
+
+const userSchema = new Schema<IUser>(
   {
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
@@ -11,6 +19,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const User = mongoose.model("User", userSchema);
+export const User = model<IUser>("User", userSchema);
+
 export const getUserByEmail = async (email: string) =>
   await User.findOne({ email: email });
