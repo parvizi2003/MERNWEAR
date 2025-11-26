@@ -8,7 +8,6 @@ const app = express();
 
 app.use(express.json());
 
-// подключаем роуты
 app.use("/auth", AuthRoutes);
 app.use("/categories", CategoryRoutes);
 
