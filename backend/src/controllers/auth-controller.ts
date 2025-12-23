@@ -111,4 +111,19 @@ export const AuthController = {
       return res.status(500).json({ message: "Server error", error: err });
     }
   },
+
+  getUserByToken: async (req: Request, res: Response) => {
+    try {
+      const user = req.user;
+
+      return res.status(200).json({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+      });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Server error", error: err });
+    }
+  },
 };
