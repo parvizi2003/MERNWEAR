@@ -1,11 +1,11 @@
-import { Icon } from "@/components/shared/icon";
+import { Icon } from "@/components/shared";
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "@/components/ui";
 import { resolveUrl } from "@/lib/utils";
 import { type NavItem } from "@/types";
 import { type ComponentPropsWithoutRef } from "react";

@@ -1,5 +1,4 @@
-import { NavMain } from "@/components/shared/nav-main";
-import { NavUser } from "@/components/shared/nav-user";
+import { NavMain, NavUser, AppLogo } from "@/components/shared";
 import {
   Sidebar,
   SidebarContent,
@@ -8,11 +7,10 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "@/components/ui";
 
 import { type NavItem } from "@/types";
-import { LayoutGrid } from "lucide-react";
-import AppLogo from "./app-logo";
+import { ChartColumnStacked, LayoutGrid, VenusAndMars } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const mainNavItems: NavItem[] = [
@@ -21,8 +19,17 @@ const mainNavItems: NavItem[] = [
     href: "/",
     icon: LayoutGrid,
   },
+  {
+    title: "Genders",
+    href: "/genders",
+    icon: VenusAndMars,
+  },
+  {
+    title: "Categories",
+    href: "/categories",
+    icon: ChartColumnStacked,
+  },
 ];
-
 export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" variant="inset">

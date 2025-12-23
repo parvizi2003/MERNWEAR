@@ -2,17 +2,13 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar";
-import { UserInfo } from "@/components/shared/user-info";
-import { UserMenuContent } from "@/components/shared/user-menu-content";
+} from "@/components/ui";
+import { UserInfo, UserMenuContent } from "@/components/shared";
 import { useIsMobile } from "@/hooks/use-mobile";
-
 import { ChevronsUpDown } from "lucide-react";
 
 const user = {
@@ -20,6 +16,7 @@ const user = {
   name: "Qurbon",
   email: "qurbon@gmail.com",
   email_verified_at: "",
+  isAdmin: true,
   created_at: "",
   updated_at: "",
 };

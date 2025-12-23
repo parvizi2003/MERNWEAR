@@ -3,13 +3,14 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { UserInfo } from "@/components/shared/user-info";
+} from "@/components/ui";
+import { UserInfo } from "@/components/shared";
 import { useMobileNavigation } from "@/hooks/use-mobile-navigation";
 
 import { type User } from "@/types";
 import { LogOut, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLogout } from "@/api/auth/use-logout";
 
 interface UserMenuContentProps {
   user: User;
@@ -18,11 +19,13 @@ interface UserMenuContentProps {
 export function UserMenuContent({ user }: UserMenuContentProps) {
   const cleanup = useMobileNavigation();
 
-  const handleLogout = () => {
-    // cleanup();
-    // router.flushAll();
-  };
+  const { handleLogout, isPending } = useLogout();
 
+  const handleClickLogout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    handleLogout();
+    cleanup();
+  };
   return (
     <>
       <DropdownMenuLabel className="p-0 font-normal">
@@ -44,7 +47,7 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
         <Link
           className="block w-full"
           to=""
-          onClick={handleLogout}
+          onClick={handleClickLogout}
           data-test="logout-button"
         >
           <LogOut className="mr-2" />

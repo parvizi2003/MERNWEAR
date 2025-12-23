@@ -1,11 +1,14 @@
-import { AppContent } from "@/components/shared/app-content";
-import { AppShell } from "@/components/shared/app-shell";
-import { AppSidebar } from "@/components/shared/app-sidebar";
-import { AppSidebarHeader } from "@/components/shared/app-sidebar-header";
+import {
+  AppContent,
+  AppShell,
+  AppSidebar,
+  AppSidebarHeader,
+} from "@/components/shared";
+
 import { type BreadcrumbItem } from "@/types";
 import { type PropsWithChildren } from "react";
 
-export default function AppSidebarLayout({
+export function AppSidebarLayout({
   children,
   breadcrumbs = [],
 }: PropsWithChildren<{ breadcrumbs?: BreadcrumbItem[] }>) {

@@ -1,13 +1,37 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Dashboard, Login } from "./pages";
+import { Dashboard, ErrorPage, Genders, Login, NotFound } from "./pages";
+import { PublicRoutes, PrivateRoutes } from "./utils";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Dashboard />,
-  },
-  {
     path: "/auth",
-    element: <Login />,
+    element: <PublicRoutes />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
+  },
+
+  {
+    path: "/",
+    element: <PrivateRoutes />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "/genders",
+        element: <Genders />,
+      },
+    ],
+  },
+
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);

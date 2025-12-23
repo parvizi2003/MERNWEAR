@@ -4,9 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/ico" href="/mernwear_logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>admin</title>
+    <title>MERNWEAR | ADMIN</title>
   </head>
+  <style>
+    #boot-loader {
+      position: fixed;
+      inset: 0;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #boot-loader .spinner {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
   <body>
+    <div
+      id="boot-loader"
+      class="fixed inset-0 bg-white flex justify-center items-center"
+    >
+      <div class="spinner">
+        <img src="/mernwear_logo.ico" width="32" height="32" />
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
